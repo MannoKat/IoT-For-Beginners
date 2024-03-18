@@ -1,7 +1,5 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.236.0/containers/markdown
 {
-	"name": "Markdown Editing",
+	"name": "Python Azure Functions",
 	"dockerFile": "Dockerfile",
 
 	// Configure tool-specific properties.
@@ -10,30 +8,11 @@
 		"vscode": {			
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
-				"docsmsft.docs-authoring-pack"
+				"ms-azuretools.vscode-azurefunctions"
 			]
 		}
 	},
-	
-	"name": "Python Azure Functions",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"args": {
-		"VARIANT": "buster"
-		}
-	},
-	"runArgs": [
-		"--name", "azure-functions"
-	],
-	"extensions": [
-		"ms-azuretools.vscode-azurefunctions"
-	],
-	"settings": {
-		"azureFunctions.projectLanguage": "Python",
-		"azureFunctions.projectRuntime": "~4"
-	}
 
-	  
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
@@ -41,6 +20,10 @@
 	// "postCreateCommand": "uname -a",
 
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode"
-}
+	"remoteUser": "vscode",
 
+	"settings": {
+		"azureFunctions.projectLanguage": "Python",
+		"azureFunctions.projectRuntime": "~4"
+	}
+}
