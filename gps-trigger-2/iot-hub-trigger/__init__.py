@@ -17,7 +17,7 @@ def get_or_create_container(name):
     
     return blob_service_client.create_container(name, public_access=PublicAccess.Container)
 
-def main(events: List[func.EventHubEvent]):
+def main(events: List[func.EventHubEvent], outputBlob: func.Out[str]):
     for event in events:
         logging.info('Python EventHub trigger processed an event: %s',
                         event.get_body().decode('utf-8'))
@@ -37,3 +37,5 @@ def main(events: List[func.EventHubEvent]):
 
         logging.info(f'Writing blob to {blob_name} - {blob_body}')
         blob.upload_blob(json.dumps(blob_body).encode('utf-8'))
+        
+        outputBlob.set(blob.url)

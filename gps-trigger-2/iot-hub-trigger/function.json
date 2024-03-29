@@ -1,5 +1,6 @@
 {
   "scriptFile": "__init__.py",
+  "disabled": false,
   "bindings": [
     {
       "type": "eventHubTrigger",
@@ -9,6 +10,13 @@
       "connection": "IOT_HUB_CONNECTION_STRING",
       "cardinality": "many",
       "consumerGroup": "$Default"
+    },
+    {
+      "type": "blob",
+      "name": "outputBlob",
+      "path": "outputcontainer/{rand-guid}.json",
+      "connection": "STORAGE_CONNECTION_STRING",
+      "direction": "out"
     }
   ]
 }
